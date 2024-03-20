@@ -93,13 +93,14 @@ void met_sechen(double a, double b, double eps) {
 	double fx2 = fun(x2);
 	int i = 1;
 	while (abs(b - a) > eps) {
+		i++;
 		if (fx1> fx2) {
 			a = x1;
 			x1 = x2;
 			x2 = a + tao * (b - a);
 			fx1 = fx2;
 			fx2 = fun(x2);
-			i++;
+			
 		}
 		else {
 			b = x2;
@@ -107,7 +108,7 @@ void met_sechen(double a, double b, double eps) {
 			x1 = a + (1 - tao) * (b - a);
 			fx2 = fx1;
 			fx1 = fun(x1);
-			i++;
+			
 		}
 	}
 	double min = (b + a )/ 2;
@@ -122,15 +123,16 @@ void met_middot(double a, double b, double eps) {
 	double x = (first+sec) / 2;
 	int i = 1;
 	while (abs(sec - first) > eps) {
+		i++;
 		if (fun_pr1(x) > 0) {
 			sec = x;
 			x = (first + sec) / 2;
-			i++;
+			
 		}
 		else {
 			first = x;
 			x = (first + sec) / 2;
-			i++;
+			
 		}
 	}
 	cout << "Xmin = " << x << " F(Xmin) = " << fun(x) << "\n";
