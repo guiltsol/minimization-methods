@@ -148,7 +148,7 @@ void met_hord(double a, double b, double eps) {
 	int i = 1;
 	if (fun_pr1(first) * fun_pr1(sec) < 0) {
 		x_min = first - (fun_pr1(first)) / (fun_pr1(sec) - fun_pr1(first)) * (sec - first);
-		while (fun_pr1(x_min) > eps) {
+		while (abs(fun_pr1(x_min))> eps) {
 			if (fun_pr1(x_min) > 0) { 
 				sec = x_min; 
 				x_min = first - (fun_pr1(first)) / (fun_pr1(sec) - fun_pr1(first)) * (sec - first);
