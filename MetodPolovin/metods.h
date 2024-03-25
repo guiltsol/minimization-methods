@@ -176,7 +176,7 @@ void met_nyton(double a, double b, double eps) {
 	double x0 = -12;
 	double x1 = x0 - (fun_pr1(x0)) / (fun_pr2(x0));
 	int i = 1;
-	while (fun_pr1(x1) > eps) {
+	while (abs(fun_pr1(x1)) > eps) {
 		x0 = x1;
 		x1 = x0 - (fun_pr1(x0)) / (fun_pr2(x0));
 		i++;
