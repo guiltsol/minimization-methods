@@ -186,5 +186,43 @@ void met_nyton(double a, double b, double eps) {
 
 
 }
+void met_nyton_rafson(double a, double b, double eps) {
+	double x0 = -12;
+	double xl = x0 - (fun_pr1(x0)) / (fun_pr2(x0));
+	double t = pow(fun_pr1(x0),2)/(pow(fun_pr1(x0),2)+ fun_pr1(xl));
+	double x1 = x0 - t*(fun_pr1(x0)) / (fun_pr2(x0));
+	int i = 1;
+	while (abs(fun_pr1(x1)) > eps) {
+		x0 = x1;
+		xl = x0 - (fun_pr1(x0)) / (fun_pr2(x0));
+		t = pow(fun_pr1(x0), 2) / (pow(fun_pr1(x0), 2) + fun_pr1(xl));
+		x1 = x0 - t*(fun_pr1(x0)) / (fun_pr2(x0));
+		i++;
+	}
+	cout << "Xmin = " << x1 << " F(Xmin) = " << fun(x1) << "\n";
+	cout << "i = " << i << "\n";
 
+
+}
+void met_nyton_mark(double a, double b, double eps) {
+	double x0 = -12;
+	double m = 4.5;
+	double x1 = x0 - (fun_pr1(x0)) / (fun_pr2(x0)+m);
+	int i = 1;
+	while (abs(fun_pr2(x1)) > eps) {
+		if (fun(x0) > fun(x1)) {
+			m /= 2;
+		}
+		else {
+			m *= 2;
+		}
+		x0 = x1;
+		x1 = x0 - (fun_pr1(x0)) / (fun_pr2(x0) + m);
+		i++;
+	}
+	cout << "Xmin = " << x1 << " F(Xmin) = " << fun(x1) << "\n";
+	cout << "i = " << i << "\n";
+
+
+}
 

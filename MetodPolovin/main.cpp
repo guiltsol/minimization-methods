@@ -25,5 +25,11 @@ int main() {
 	cout << "Метод Ньютона:\n";
 	met_nyton(a, b, eps);
 	cout << '\n';
+	cout << "Метод Ньютона-Рафсона:\n";
+	met_nyton_rafson(a, b, eps);
+	cout << '\n';
+	cout << "Метод Ньютона-Марквардта:\n";
+	met_nyton_mark(a, b, eps);
+	cout << '\n';
 	return 0;
 }
